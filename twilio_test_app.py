@@ -21,7 +21,7 @@ def incoming_sms():
     # Determine the right reply for this message
     if response_add == True:
         grocery_list.append(body)
-        clean_list = '\n'.join(i for i in grocery_list)
+        clean_list = '\n'.join(grocery_list)
         resp.message("Added ", body,
                      " to the list. Your current list is: \n", clean_list)
         response_add = False
@@ -30,7 +30,7 @@ def incoming_sms():
 
         if body in grocery_list:
             grocery_list.remove(body)
-            clean_list = '\n'.join(i for i in grocery_list)
+            clean_list = '\n'.join(grocery_list)
 
             resp.message("Removed ", body,
                          " from the list. Your current list is: \n", clean_list)
